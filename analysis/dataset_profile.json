@@ -1,0 +1,111 @@
+{
+  "summary": {
+    "files": {
+      "txt_count": 16440,
+      "decode_with_replacement_count": 4,
+      "sample_paths": [
+        "data\\raw\\export_1\\002-TT-LB.txt",
+        "data\\raw\\export_1\\002-TT_LB.txt",
+        "data\\raw\\export_1\\004-LĐ_TT.txt",
+        "data\\raw\\export_1\\004-TT_HCVX.txt",
+        "data\\raw\\export_1\\005_2010_QĐ-UBND.txt",
+        "data\\raw\\export_1\\007-TT.txt",
+        "data\\raw\\export_1\\01-BYT_TT.txt",
+        "data\\raw\\export_1\\01-CP.txt",
+        "data\\raw\\export_1\\01-LN-QĐ.txt",
+        "data\\raw\\export_1\\01-LĐ-TT.txt"
+      ]
+    },
+    "length_distribution": {
+      "chars": {
+        "min": 737,
+        "p25": 6666.75,
+        "p50": 12270.0,
+        "p75": 22312.25,
+        "p90": 38814.5,
+        "max": 798241,
+        "mean": 20019.447262773723
+      },
+      "words": {
+        "min": 144,
+        "p25": 1392.0,
+        "p50": 2578.0,
+        "p75": 4697.5,
+        "p90": 8140.200000000001,
+        "max": 174697,
+        "mean": 4188.098114355231
+      },
+      "non_empty_lines": {
+        "min": 15,
+        "p25": 129.0,
+        "p50": 253.0,
+        "p75": 474.0,
+        "p90": 944.1000000000004,
+        "max": 24069,
+        "mean": 494.9579683698297
+      },
+      "avg_non_empty_line_len": {
+        "min": 4.005483658697083,
+        "p25": 41.58683433509561,
+        "p50": 48.62981760507534,
+        "p75": 53.89363541562833,
+        "p90": 58.65285184554305,
+        "max": 364.58730158730157,
+        "mean": 47.63392007687438
+      },
+      "estimated_tokens_per_doc": {
+        "char_based_mean": 5004.861815693431,
+        "char_based_p50": 3067.5,
+        "char_based_p90": 9703.625,
+        "word_based_mean": 5025.717737226277
+      }
+    },
+    "article_structure": {
+      "docs_with_detected_articles": 12603,
+      "article_segment_mean_chars": 3748.6242832952385,
+      "article_segment_p50_chars": 1835.3333333333333,
+      "article_segment_p75_chars": 3565.625
+    }
+  },
+  "chunking_recommendation": {
+    "strategy": "structure_aware_recursive_chunking",
+    "why": [
+      "Legal text has clear hierarchy (phan/chuong/muc/dieu); split by structure first.",
+      "Fallback recursive split controls very long sections and keeps chunks retrieval-friendly.",
+      "Overlap preserves references across adjacent legal sections."
+    ],
+    "recommended_config": {
+      "chunk_size_chars": 1800,
+      "chunk_overlap_chars": 324,
+      "min_chunk_chars": 630,
+      "length_function": "len",
+      "keep_separator": true,
+      "pre_split_regex": [
+        "(?im)^\\s*(?:phan|ph\\u1ea7n)\\s+[ivxlcdm]+",
+        "(?im)^\\s*(?:chuong|ch\\u01b0\\u01a1ng)\\s+[ivxlcdm]+",
+        "(?im)^\\s*(?:muc|m\\u1ee5c)\\s+\\d+",
+        "(?im)^\\s*(?:dieu|\\u0111ieu|\\u0111i\\u1ec1u)\\s+\\d+"
+      ],
+      "recursive_separators": [
+        "\n\n",
+        "\n",
+        ". ",
+        "; ",
+        ", ",
+        " ",
+        ""
+      ]
+    },
+    "retrieval_hint": {
+      "top_k_start": 8,
+      "rerank_top_n": 20,
+      "notes": "Start with top_k=8 for recall, then rerank to reduce noisy contexts."
+    },
+    "observed_data_points": {
+      "doc_chars_p50": 12270.0,
+      "doc_chars_p75": 22312.25,
+      "article_seg_chars_p50": 1835.3333333333333,
+      "article_seg_chars_p75": 3565.625
+    }
+  }
+}

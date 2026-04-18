@@ -1,0 +1,74 @@
+[
+  {
+    "sheet": "Câu hỏi và câu trả lời",
+    "rows": 2745,
+    "cols": [
+      "Câu Hỏi",
+      "Trả lời",
+      "Số hiệu VBPL (Trích xuất)",
+      "Câu trả lời của URAx-Law",
+      "Reference có đúng không?",
+      "Trả lời có đúng không? ",
+      "Unnamed: 6",
+      "Unnamed: 7",
+      "Unnamed: 8",
+      "Unnamed: 9",
+      "Unnamed: 10",
+      "Unnamed: 11"
+    ],
+    "sample": [
+      {
+        "Câu Hỏi": "Soft OTP là hình thức xác thực thế nào, gồm những loại nào và phần mềm Soft OTP cần tuân thủ những yêu cầu cụ thể gì theo quy định?",
+        "Trả lời": "Căn cứ tại điểm d khoản 3 Điều 11 Thông tư 50/2024/TT-NHNN quy định về Soft OTP là hình thức xác nhận thông qua mã OTP được tạo bởi phần mềm cài đặt trên thiết bị di động của khách hàng, phần mềm Soft OTP có thể là phần mềm độc lập hoặc được tích hợp với phần mềm ứng dụng Mobile Banking.\n- Soft OTP có 02 loại:\n+ Soft OTP loại cơ bản: Mã OTP được sinh ngẫu nhiên theo thời gian, đồng bộ với hệ thống Online Banking;\n+ Soft OTP loại nâng cao: Mã OTP được tạo kết hợp với mã của từng giao dịch, khi thực hiện giao dịch, hệ thống Online Banking tạo ra một mã giao dịch thông báo cho khách hàng hoặc truyền cho phần mềm Soft OTP, khách hàng hoặc phần mềm Soft OTP tự động nhập mã giao dịch vào phần mềm Soft OTP để phần mềm Soft OTP tạo ra mã OTP.\n- Soft OTP phải đáp ứng yêu cầu như sau:\n+ Trường hợp phần mềm Soft OTP độc lập với phần mềm ứng dụng Mobile Banking, phải được đơn vị đăng ký, quản lý tại kho ứng dụng chính thức của hãng cung cấp hệ điều hành cho thiết bị di động và hướng dẫn cài đặt rõ ràng trên trang tin điện tử của đơn vị để khách hàng tải và cài đặt phần mềm Soft OTP;\n+ Phần mềm Soft OTP phải yêu cầu kích hoạt trước khi sử dụng. Mã kích hoạt sử dụng Soft OTP do đơn vị cung cấp cho khách hàng và chỉ được sử dụng để kích hoạt trên một thiết bị di động. Mã kích hoạt phải được thiết lập thời hạn hiệu lực sử dụng;\n+ Phần mềm Soft OTP phải có chức năng kiểm soát truy cập. Trường hợp truy cập sai liên tiếp quá số lần do đơn vị quy định (nhưng không quá 10 lần), phần mềm Soft OTP phải tự động khóa không cho khách hàng sử dụng tiếp. Đơn vị chỉ mở khóa phần mềm Soft OTP khi khách hàng yêu cầu và phải kiểm tra, nhận biết khách hàng trước khi thực hiện mở khóa, bảo đảm chống gian lận, giả mạo.\n+ Trường hợp phần mềm Soft OTP độc lập với phần mềm ứng dụng Mobile Banking phải có chức năng kiểm tra khách hàng cá nhân trước khi cho phép khách hàng sử dụng lần đầu hoặc trước khi khách hàng sử dụng trên thiết bị khác với thiết bị sử dụng lần gần nhất. Việc kiểm tra khách hàng tối thiểu bao gồm:\n++ Khớp đúng SMS OTP hoặc Voice OTP thông qua số điện thoại đã được khách hàng đăng ký,\n++ Khớp đúng thông tin sinh trắc học của khách hàng;\n+ Mã OTP có hiệu lực tối đa 02 phút.\n\nLưu ý: Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/01/2025, trừ trường hợp quy định tại:\n- Điểm b khoản 1 Điều 4 Thông tư 50/2024/TT-NHNN, điểm d khoản 9 Điều 7 Thông tư 50/2024/TT-NHNN, khoản 3 và khoản 4 Điều 8 Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/07/2025.\n- Điểm b khoản 1 Điều 10 Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/01/2026.\n- Điểm c khoản 5, điểm c khoản 7 Điều 11 Thông tư 50/2024/TT-NHNN, điểm b (iv) khoản 1 Điều 20 Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/07/2026.",
+        "Số hiệu VBPL (Trích xuất)": "50/2024/TT-NHNN",
+        "Câu trả lời của URAx-Law": "### Soft OTP là gì?\n \n Soft OTP (One Time Password) là hình thức xác thực mà mã OTP được tạo ra bởi phần mềm cài đặt trên thiết bị di động của người dùng, nhằm mục đích đảm bảo an toàn cho các giao dịch điện tử. Soft OTP có thể hoạt động độc lập hoặc tích hợp vào ứng dụng Mobile Banking.\n \n ### Các loại Soft OTP\n \n 1. **Soft OTP loại cơ bản**: Mã OTP được sinh ngẫu nhiên theo thời gian và đồng bộ với hệ thống Online Banking.\n 2. **Soft OTP loại nâng cao**: Mã OTP được tạo ra kết hợp với mã của từng giao dịch, có tính năng tự động nhập mã giao dịch vào phần mềm Soft OTP để tạo ra mã OTP.\n \n ### Yêu cầu cụ thể đối với phần mềm Soft OTP\n \n Phần mềm Soft OTP phải tuân thủ những yêu cầu sau:\n \n 1. **Kích hoạt trước khi sử dụng**: Phần mềm phải yêu cầu người dùng kích hoạt bằng mã mà đơn vị cung cấp, mã này chỉ được sử dụng trên một thiết bị di động duy nhất và phải có thời hạn sử dụng cụ thể.\n  \n 2. **Chức năng kiểm soát truy cập**: Nếu có quá nhiều lần truy cập sai theo quy định, phần mềm phải tự động khóa và chỉ có thể mở khóa khi khách hàng yêu cầu, kèm theo việc xác minh danh tính để chống gian lận.\n \n 3. **Kiểm tra khách hàng cá nhân**: Khi phần mềm Soft OTP độc lập với ứng dụng Mobile Banking, nó phải kiểm tra khách hàng cá nhân trước khi cho phép sử dụng lần đầu hoặc trên thiết bị khác. Việc kiểm tra này phải bao gồm:\n  - Xác minh SMS OTP hoặc Voice OTP qua số điện thoại đã đăng ký.\n  - Kiểm tra thông tin sinh trắc học của khách hàng.\n \n 4. **Thời gian hiệu lực của mã OTP**: Mã OTP có hiệu lực tối đa 02 phút.\n \n ### Tóm lại\n \n Soft OTP là một phần quan trọng trong việc xác thực giao dịch trực tuyến, nhằm tăng cường an ninh và bảo mật cho người dùng. Phần mềm Soft OTP cần tuân thủ các yêu cầu về kích hoạt, kiểm soát truy cập, và xác minh khách hàng để đảm bảo an toàn trong suốt quá trình sử dụng.\n \n ### Tài liệu tham khảo\n - [KG] Soft OTP\n - [KG] Khách hàng - Soft OTP\n - [DC] Thông tư50-2024-TT-NHNN (1).docx",
+        "Reference có đúng không?": 1.0,
+        "Trả lời có đúng không? ": 1.0,
+        "Unnamed: 6": NaN,
+        "Unnamed: 7": NaN,
+        "Unnamed: 8": NaN,
+        "Unnamed: 9": NaN,
+        "Unnamed: 10": "Hạng mục",
+        "Unnamed: 11": "Số lượng"
+      },
+      {
+        "Câu Hỏi": "Những nội dung tối thiểu gì mà tổ chức cung cấp dịch vụ Online Banking phải công bố, thông báo cho khách hàng theo quy định?",
+        "Trả lời": "Căn cứ tại khoản 2 Điều 17 Thông tư 50/2024/TT-NHNN quy định về đơn vị phải thông tin cho khách hàng về các điều khoản trong thỏa thuận cung cấp, sử dụng dịch vụ Online Banking, tối thiểu gồm:\n- Quyền lợi và nghĩa vụ của khách hàng sử dụng dịch vụ Online Banking;\n- Các loại dữ liệu của khách hàng mà đơn vị thu thập, mục đích sử dụng dữ liệu của khách hàng và trách nhiệm của đơn vị trong bảo mật dữ liệu của khách hàng theo quy định của pháp luật trừ trường hợp đơn vị và khách hàng đã có thỏa thuận khác về việc bảo vệ dữ liệu khách hàng phù hợp với quy định của pháp luật;\n- Cam kết khả năng bảo đảm hoạt động liên tục của hệ thống Online Banking, tối thiểu gồm: thời gian gián đoạn cung cấp dịch vụ trong một lần, tổng thời gian gián đoạn cung cấp dịch vụ trong một năm trừ các trường hợp bất khả kháng hoặc bảo trì, nâng cấp hệ thống đã được đơn vị thông báo;\n- Các nội dung khác của đơn vị đối với dịch vụ Online Banking (nếu có).\n\nLưu ý: Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/01/2025, trừ trường hợp quy định tại:\n- Điểm b khoản 1 Điều 4 Thông tư 50/2024/TT-NHNN, điểm d khoản 9 Điều 7 Thông tư 50/2024/TT-NHNN, khoản 3 và khoản 4 Điều 8 Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/07/2025.\n- Điểm b khoản 1 Điều 10 Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/01/2026.\n- Điểm c khoản 5, điểm c khoản 7 Điều 11 Thông tư 50/2024/TT-NHNN, điểm b (iv) khoản 1 Điều 20 Thông tư 50/2024/TT-NHNN có hiệu lực thi hành kể từ ngày 01/07/2026.",
+        "Số hiệu VBPL (Trích xuất)": "50/2024/TT-NHNN",
+        "Câu trả lời của URAx-Law": "Theo quy định, tổ chức cung cấp dịch vụ Online Banking phải công bố và thông báo cho khách hàng các nội dung tối thiểu sau:\n \n 1. **Thông tin về dịch vụ Online Banking**:\n  - Cách thức cung cấp dịch vụ và cách thức truy cập dịch vụ Online Banking.\n  - Hạn mức giao dịch (nếu có) và các hình thức xác nhận giao dịch.\n  - Các trang thiết bị cần thiết để sử dụng dịch vụ, điều kiện với các trang thiết bị được sử dụng.\n  - Các rủi ro liên quan đến việc sử dụng dịch vụ Online Banking.\n \n 2. **Điều khoản trong thỏa thuận cung cấp dịch vụ Online Banking**:\n  - Quyền lợi và nghĩa vụ của khách hàng khi sử dụng dịch vụ Online Banking.\n  - Các loại dữ liệu của khách hàng mà tổ chức thu thập, mục đích sử dụng dữ liệu và trách nhiệm trong bảo mật dữ liệu của khách hàng.\n  - Cam kết khả năng bảo đảm hoạt động liên tục của hệ thống Online Banking.\n \n 3. **Thông tin về quy trình và hướng dẫn khách hàng**:\n  - Hướng dẫn khách hàng thực hiện các biện pháp bảo đảm an toàn, bảo mật khi sử dụng dịch vụ Online Banking.\n  - Cấm gửi tin nhắn SMS, thư điện tử cho khách hàng có chứa đường dẫn liên kết (hyperlink) truy cập các trang tin điện tử, trừ trường hợp theo yêu cầu của khách hàng.\n \n Các thông tin này nhằm đảm bảo khách hàng được tiếp cận, hiểu rõ về dịch vụ mà họ sử dụng, cũng như về quy tắc bảo mật liên quan.\n \n **Tài liệu tham khảo:**\n - [KG] Online Banking - Điều 17\n - [KG] Online Banking - Điều 18\n - [DC] Thông tư50-2024-TT-NHNN (1).docx",
+        "Reference có đúng không?": 1.0,
+        "Trả lời có đúng không? ": 1.0,
+        "Unnamed: 6": NaN,
+        "Unnamed: 7": NaN,
+        "Unnamed: 8": NaN,
+        "Unnamed: 9": NaN,
+        "Unnamed: 10": "Tổng số câu hỏi",
+        "Unnamed: 11": 2748
+      }
+    ]
+  },
+  {
+    "sheet": "Tần suất dẫn của các văn bản",
+    "rows": 311,
+    "cols": [
+      "Xếp hạng",
+      "Số hiệu Văn bản",
+      "Số lần xuất hiện",
+      "Đã Crawl"
+    ],
+    "sample": [
+      {
+        "Xếp hạng": 1,
+        "Số hiệu Văn bản": "52/2024/NĐ-CP",
+        "Số lần xuất hiện": 146,
+        "Đã Crawl": "r"
+      },
+      {
+        "Xếp hạng": 2,
+        "Số hiệu Văn bản": "17/2024/TT-NHNN",
+        "Số lần xuất hiện": 86,
+        "Đã Crawl": "r"
+      }
+    ]
+  }
+]

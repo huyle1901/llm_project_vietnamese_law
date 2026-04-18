@@ -1,0 +1,16 @@
+{
+  "important_total": 315,
+  "important_matched": 280,
+  "important_missing": 35,
+  "metadata_total_rows": 518255,
+  "metadata_filtered_rows": 351,
+  "metadata_filtered_unique_ids": 351,
+  "content_total_rows": 518255,
+  "content_filtered_rows": 351,
+  "content_filtered_unique_ids": 351,
+  "content_duplicate_rows_skipped": 0,
+  "ids_missing_in_content_after_meta_match": 0,
+  "out_metadata": "data\\datahuggingface\\metadata_important_docs.jsonl",
+  "out_content": "data\\datahuggingface\\content_important_docs.jsonl",
+  "out_missing": "data\\datahuggingface\\important_docs_missing.txt"
+}

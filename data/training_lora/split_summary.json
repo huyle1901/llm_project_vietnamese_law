@@ -1,0 +1,26 @@
+{
+  "sheet": "Câu hỏi và câu trả lời",
+  "columns": {
+    "question": "Câu Hỏi",
+    "answer": "Trả lời",
+    "vbpl": "Số hiệu VBPL (Trích xuất)"
+  },
+  "counts": {
+    "total_rows": 2745,
+    "answerable_rows": 1762,
+    "no_vbpl_rows": 772,
+    "vbpl_missing_in_corpus_rows": 211,
+    "train_rows": 2445,
+    "val_rows": 150,
+    "evaluate_rows": 150
+  },
+  "paths": {
+    "train_jsonl": "data\\training_lora\\train_messages.jsonl",
+    "val_jsonl": "data\\training_lora\\val_messages.jsonl",
+    "evaluate_csv": "data\\evaluate\\evaluate.csv"
+  },
+  "seed": 42,
+  "evaluate_n": 150,
+  "ce_val_n": 150,
+  "drop_duplicate_question": false
+}

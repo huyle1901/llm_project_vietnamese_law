@@ -1,0 +1,38 @@
+=== Docs in important_docs but NOT found in metadata ===
+- raw=50/2024/TT-NHNN | fixed=50/2024/TT-NHNN | canonical=50/2024/TT-NHNN
+- raw=72/2025/QH | fixed=72/2025/QH | canonical=72/2025/QH
+- raw=Luật Các tổ chức tín dụng 2024 | fixed=Luật Các tổ chức tín dụng 2024 | canonical=LUATCACTOCHUCTINDUNG2024
+- raw=Không trích xuất được | fixed=Không trích xuất được | canonical=KHONGTRICHXUATDUOC
+- raw=137/2020/NĐ-CP | fixed=137/2020/NĐ-CP | canonical=137/2020/ND-CP
+- raw=Luật Phòng, chống rửa tiền | fixed=Luật Phòng, chống rửa tiền | canonical=LUATPHONGCHONGRUATIEN
+- raw=117/QĐ-HĐQT-NHNN | fixed=117/QĐ-HĐQT-NHNN | canonical=117/QD-HDQT-NHNN
+- raw=61/TB-BHXH | fixed=61/TB-BHXH | canonical=61/TB-BHXH
+- raw=01/NHNN-CK | fixed=01/NHNN-CK | canonical=01/NHNN-CK
+- raw=11/2023/QĐ-TT | fixed=11/2023/QĐ-TT | canonical=11/2023/QD-TT
+- raw=21/2017/TT-NHNN | fixed=21/2017/TT-NHNN | canonical=21/2017/TT-NHNN
+- raw=29/2024/TT-NHNN | fixed=29/2024/TT-NHNN | canonical=29/2024/TT-NHNN
+- raw=69/2024/NĐ-CP | fixed=69/2024/NĐ-CP | canonical=69/2024/ND-CP
+- raw=42/2015/TT-NHNN | fixed=42/2015/TT-NHNN | canonical=42/2015/TT-NHNN
+- raw=01/2021/TT-NHNN | fixed=01/2021/TT-NHNN | canonical=01/2021/TT-NHNN
+- raw=06/TB-KBKVII | fixed=06/TB-KBKVII | canonical=06/TB-KBKVII
+- raw=03/2025/TT | fixed=03/2025/TT | canonical=03/2025/TT
+- raw=237/QĐ-NHNN | fixed=237/QĐ-NHNN | canonical=237/QD-NHNN
+- raw=91/GP-NHNN | fixed=91/GP-NHNN | canonical=91/GP-NHNN
+- raw=32/2021/QĐ-TT | fixed=32/2021/QĐ-TT | canonical=32/2021/QD-TT
+- raw=58/2024/TT-NHNN | fixed=58/2024/TT-NHNN | canonical=58/2024/TT-NHNN
+- raw=16/2003/QĐ-TT | fixed=16/2003/QĐ-TT | canonical=16/2003/QD-TT
+- raw=02/2025/QĐ-TT | fixed=02/2025/QĐ-TT | canonical=02/2025/QD-TT
+- raw=2631/TCQĐ-HĐQT | fixed=2631/TCQĐ-HĐQT | canonical=2631/TCQD-HDQT
+- raw=165/2018/NĐ-CP | fixed=165/2018/NĐ-CP | canonical=165/2018/ND-CP
+- raw=18/2024/QĐ-TT | fixed=18/2024/QĐ-TT | canonical=18/2024/QD-TT
+- raw=170/1999/QĐ-TT | fixed=170/1999/QĐ-TT | canonical=170/1999/QD-TT
+- raw=157/2007/QĐ-TT | fixed=157/2007/QĐ-TT | canonical=157/2007/QD-TT
+- raw=09/2024/QĐ-TT | fixed=09/2024/QĐ-TT | canonical=09/2024/QD-TT
+- raw=13/2017/BTC | fixed=13/2017/BTC | canonical=13/2017/BTC
+- raw=22/2023/QĐ-TT | fixed=22/2023/QĐ-TT | canonical=22/2023/QD-TT
+- raw=131/2002/QĐ-TT | fixed=131/2002/QĐ-TT | canonical=131/2002/QD-TT
+- raw=47/2010/QH | fixed=47/2010/QH | canonical=47/2010/QH
+- raw=11/2014/TT-NHNN | fixed=11/2014/TT-NHNN | canonical=11/2014/TT-NHNN
+- raw=42/2017/QH | fixed=42/2017/QH | canonical=42/2017/QH
+
+=== IDs found in metadata_important but missing in content_important ===

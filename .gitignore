@@ -1,0 +1,60 @@
+.venv/
+.uv-cache/
+__pycache__/
+*.pyc
+.env
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+RAG_Assignment.pdf
+embeddings_*.npy
+metadata_*.parquet
+manifest.json
+rag_eval_results.csv
+
+# Ignore the reports folder in the GitHub release.
+reports/
+
+# Keep only two analysis summaries; ignore the rest of analysis/.
+analysis/**
+!analysis/
+!analysis/dataset_profile.json
+!analysis/res_xlsx_summary.json
+
+# Keep only the notebooks needed for the final repo release.
+*.ipynb
+!notebooks/
+!notebooks/rag_evaluate_base.ipynb
+!notebooks/rag_evaluate_qlora.ipynb
+!notebooks/kaggle_embed_jsonl_full.ipynb
+!notebooks/qlora-law.ipynb
+
+# Exclude large/raw data by default, then re-include the processed artifacts
+# needed to reproduce evaluation, indexing, and QLoRA training.
+data/**
+!data/datahuggingface/
+!data/datahuggingface/.gitkeep
+!data/datahuggingface/corpus_important_docs.jsonl
+!data/datahuggingface/content_important_docs.jsonl
+!data/datahuggingface/important_docs_from_excel.txt
+!data/datahuggingface/important_docs_missing.txt
+!data/datahuggingface/important_docs_summary.json
+!data/datahuggingface/metadata_important_docs.jsonl
+!data/evaluate/
+!data/evaluate/evaluate.csv
+!data/evaluate/evaluate_messages.jsonl
+!data/external/
+!data/external/hf_vietnamese_legal_documents_metadata.parquet
+!data/faiss/
+!data/faiss/law_chunks_e5_base/
+!data/faiss/law_chunks_e5_base/index.pkl
+!data/training_lora/
+!data/training_lora/split_summary.json
+!data/training_lora/train_messages.jsonl
+!data/training_lora/val_messages.jsonl
