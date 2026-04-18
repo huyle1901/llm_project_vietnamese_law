@@ -1,186 +1,145 @@
-# Vietnamese Legal RAG Assignment
+# Vietnamese Legal RAG Project
 
-This repository contains a retrieval-augmented generation pipeline for Vietnamese legal question answering.
+Repository nay chua pipeline RAG tieng Viet cho bai toan hoi dap van ban phap luat, gom cac buoc:
 
-The project improves a simple assignment baseline with:
+- chuan bi va loc du lieu van ban
+- chunking va tao metadata
+- indexing cho dense retrieval va sparse retrieval
+- danh gia he thong RAG
+- tao du lieu huan luyen va notebook QLoRA
 
-- structure-aware legal chunking
-- metadata-rich retrieval units
-- hybrid sparse + dense retrieval
-- reciprocal rank fusion
-- reranking
-- document focus and context expansion
-- grounded prompting
-- an optional QLoRA adapter on top of `Qwen/Qwen2.5-3B-Instruct`
+## Cau truc thu muc
 
-## Main Components
-
-### Runtime scripts
-
-- `scripts/rag_hybrid_opensearch_faiss_qwen.py`
-  - main retrieval + generation pipeline
-  - supports FAISS dense retrieval and sparse retrieval via local BM25 or OpenSearch
-- `scripts/evaluate_rag_random_subset.py`
-  - evaluation utilities and metric computation
-
-### Data preparation scripts
-
-- `scripts/data/prepare_and_profile_dataset.py`
-- `scripts/data/chunk_legal_corpus.py`
-- `scripts/data/extract_doc_numbers_from_excel.py`
-- `scripts/data/join_content_metadata.py`
-- `scripts/data/download_hf_legal_dataset.py`
-- `scripts/data/filter_important_docs_from_hf.py`
-
-### Indexing scripts
-
-- `scripts/indexing/kaggle_embed_jsonl_full.py`
-- `scripts/indexing/faiss_ingest_langchain.py`
-- `scripts/indexing/faiss_query_langchain.py`
-- `scripts/indexing/opensearch_ingest_chunks.py`
-- `scripts/indexing/test_opensearch_query.py`
-
-### Training and publishing
-
-- `scripts/training/split_res_for_lora.py`
-- `scripts/publishing/upload_dataset_to_hf.py`
-
-## Main Notebooks
-
-Only the notebooks needed for final reproduction are included in the GitHub release:
-
-- `notebooks/rag_evaluate_base.ipynb`
-  - evaluate the improved base RAG system on the fixed held-out split
-- `notebooks/rag_evaluate_qlora.ipynb`
-  - evaluate the improved RAG system with the QLoRA adapter on the same split
-- `notebooks/qlora-law.ipynb`
-  - train the QLoRA adapter
-- `notebooks/kaggle_embed_jsonl_full.ipynb`
-  - full-corpus embedding notebook for Kaggle
-
-## Dataset Packaging
-
-The full raw corpus is too large for a lightweight GitHub release, so this repository keeps the processed artifacts needed to reproduce retrieval and evaluation.
-
-### Included in the repo
-
-- `RES.xlsx`
-- `data/datahuggingface/corpus_important_docs.jsonl`
-- `data/datahuggingface/content_important_docs.jsonl`
-- `data/datahuggingface/metadata_important_docs.jsonl`
-- `data/datahuggingface/corpus_important_docs_chunks.jsonl`
-- `data/datahuggingface/important_docs_from_excel.txt`
-- `data/datahuggingface/important_docs_missing.txt`
-- `data/datahuggingface/important_docs_summary.json`
-- `data/faiss/law_chunks_e5_base/index.faiss`
-- `data/faiss/law_chunks_e5_base/index.pkl`
-- `data/evaluate/evaluate.csv`
-- `data/evaluate/evaluate_messages.jsonl`
-- `data/training_lora/train_messages.jsonl`
-- `data/training_lora/val_messages.jsonl`
-- `data/training_lora/split_summary.json`
-- `data/external/hf_vietnamese_legal_documents_metadata.parquet`
-
-### Excluded from the repo
-
-- `data/raw/export_1/`
-- `data/datahuggingface/content_full.jsonl`
-- `data/datahuggingface/metadata_full.jsonl`
-- `data/datahuggingface/hf_vohuutridung_raw/`
-- temporary embedding shards and local cache files
-
-## Evaluation Split
-
-The final comparison uses the same fixed held-out file:
-
-- `data/evaluate/evaluate.csv`
-
-This split is derived from `RES.xlsx` with:
-
-```bash
-uv run python scripts/training/split_res_for_lora.py --evaluate-n 150 --ce-val-n 150
+```text
+.
+|-- README.md                                  # mo ta tong quan du an va cau truc repo
+|-- .gitignore                                 # quy tac bo qua file/thu muc khong dua len Git
+|-- pyproject.toml                             # cau hinh project va dependency chinh cho uv
+|-- uv.lock                                    # lock file de cai dung dung version package
+|-- uv.toml                                    # cau hinh uv bo sung cho moi truong local
+|-- requirements_hf.txt                        # danh sach package phuc vu cac buoc Hugging Face
+|-- docker-compose.opensearch.yml              # dung OpenSearch local cho sparse retrieval
+|-- RES.xlsx                                   # file du lieu goc dung de tao tap train/val/evaluate
+|-- important_docs.txt                         # danh sach van ban quan trong duoc trich rieng
+|
+|-- analysis/
+|   |-- dataset_profile.json                   # thong ke va profiling cua bo du lieu da xu ly
+|   `-- res_xlsx_summary.json                  # tom tat noi dung va phan bo cua RES.xlsx
+|
+|-- data/
+|   |-- datahuggingface/
+|   |   |-- .gitkeep                           # giu thu muc trong Git
+|   |   |-- corpus_important_docs.jsonl        # tap hop van ban quan trong da loc
+|   |   |-- content_important_docs.jsonl       # noi dung chi tiet cua van ban quan trong
+|   |   |-- metadata_important_docs.jsonl      # metadata di kem cho bo van ban quan trong
+|   |   |-- important_docs_from_excel.txt      # danh sach van ban lay tu file Excel
+|   |   |-- important_docs_missing.txt         # cac van ban khong tim thay trong qua trinh doi chieu
+|   |   `-- important_docs_summary.json        # tong hop ket qua loc va doi chieu van ban
+|   |
+|   |-- evaluate/
+|   |   |-- evaluate.csv                       # tap mau co dinh dung de benchmark RAG
+|   |   `-- evaluate_messages.jsonl            # du lieu evaluate o dang message/chat
+|   |
+|   |-- external/
+|   |   `-- hf_vietnamese_legal_documents_metadata.parquet
+|   |                                          # metadata goc tai ve tu nguon Hugging Face
+|   |
+|   |-- faiss/
+|   |   `-- law_chunks_e5_base/
+|   |       `-- index.pkl                      # metadata/map cua chi muc FAISS dang dung
+|   |
+|   `-- training_lora/
+|       |-- train_messages.jsonl               # du lieu train cho QLoRA
+|       |-- val_messages.jsonl                 # du lieu validation cho QLoRA
+|       `-- split_summary.json                 # thong tin cach chia train/val/evaluate
+|
+|-- notebooks/
+|   |-- rag_evaluate_base.ipynb                # notebook danh gia base RAG
+|   |-- rag_evaluate_qlora.ipynb               # notebook danh gia RAG co adapter QLoRA
+|   |-- qlora-law.ipynb                        # notebook huan luyen adapter QLoRA
+|   `-- kaggle_embed_jsonl_full.ipynb          # notebook tao embedding toan bo tren Kaggle
+|
+|-- scripts/
+|   |-- README.md                              # ghi chu ngan cho nhom script
+|   |-- rag_hybrid_opensearch_faiss_qwen.py    # pipeline RAG chinh: retrieve, rerank, generate
+|   |-- evaluate_rag_random_subset.py          # script tinh metric va danh gia he thong
+|   |
+|   |-- data/
+|   |   |-- prepare_and_profile_dataset.py     # chuan bi du lieu va sinh thong ke tong quan
+|   |   |-- download_hf_legal_dataset.py       # tai bo du lieu phap luat tu Hugging Face
+|   |   |-- extract_doc_numbers_from_excel.py  # trich so ky hieu van ban tu RES.xlsx
+|   |   |-- filter_important_docs_from_hf.py   # loc nhom van ban quan trong tu nguon lon
+|   |   |-- join_content_metadata.py           # ghep noi dung van ban voi metadata
+|   |   `-- chunk_legal_corpus.py              # chia van ban thanh cac chunk phuc vu retrieval
+|   |
+|   |-- indexing/
+|   |   |-- kaggle_embed_jsonl_full.py         # tao embedding cho corpus lon
+|   |   |-- faiss_ingest_langchain.py          # nap du lieu vao chi muc FAISS
+|   |   |-- faiss_query_langchain.py           # thu truy van FAISS
+|   |   |-- opensearch_ingest_chunks.py        # nap chunk vao OpenSearch
+|   |   `-- test_opensearch_query.py           # test truy van sparse retrieval
+|   |
+|   |-- training/
+|   |   `-- split_res_for_lora.py              # chia du lieu RES.xlsx cho train/val/evaluate
+|   |
+|   `-- publishing/
+|       `-- upload_dataset_to_hf.py            # day artifact/du lieu len Hugging Face
 ```
 
-Meaning:
+## Thanh phan chinh
 
-- `train_messages.jsonl`: QLoRA training data
-- `val_messages.jsonl`: 150-row validation split
-- `evaluate.csv`: fixed 150-row held-out RAG evaluation split
+### 1. Du lieu
 
-The current reported runs use the first 100 rows of that fixed split.
+- `RES.xlsx` la nguon dau vao goc de tao bo train/validation/evaluation.
+- `data/datahuggingface/` chua bo van ban phap luat da loc va metadata di kem.
+- `data/evaluate/evaluate.csv` la tap danh gia co dinh de so sanh cac phien ban RAG.
+- `data/training_lora/` chua du lieu huan luyen theo dinh dang chat cho adapter.
 
-## Quick Start
+### 2. Pipeline RAG
 
-### 1. Install dependencies
+- `scripts/rag_hybrid_opensearch_faiss_qwen.py` la entry point chinh cho he thong.
+- He thong ket hop dense retrieval, sparse retrieval, hop nhat ket qua va tao cau tra loi.
+- `scripts/evaluate_rag_random_subset.py` dung de chay benchmark va tinh metric.
 
-This project uses `uv`.
+### 3. Indexing
 
-```bash
-uv sync --group embed --group llm --group dev
-```
+- `scripts/indexing/faiss_ingest_langchain.py` va `scripts/indexing/faiss_query_langchain.py` phuc vu FAISS.
+- `scripts/indexing/opensearch_ingest_chunks.py` va `scripts/indexing/test_opensearch_query.py` phuc vu OpenSearch.
+- `data/faiss/law_chunks_e5_base/index.pkl` giu metadata can thiet cua chi muc dang su dung trong repo.
 
-If you only need the base project dependencies:
+### 4. QLoRA
+
+- `notebooks/qlora-law.ipynb` dung de huan luyen adapter.
+- `data/training_lora/train_messages.jsonl` va `val_messages.jsonl` la du lieu cho qua trinh fine-tuning.
+- `notebooks/rag_evaluate_qlora.ipynb` dung de danh gia he thong sau khi nap adapter.
+
+## Cach dung nhanh
+
+### Cai moi truong
 
 ```bash
 uv sync
 ```
 
-### 2. Run the base pipeline notebook
+Neu can them nhom dependency phuc vu embed, LLM hoac phat trien:
 
-Open:
+```bash
+uv sync --group embed --group llm --group dev
+```
 
-- `notebooks/rag_evaluate_base.ipynb`
+### Chay cac notebook chinh
 
-Required assets:
+- `notebooks/rag_evaluate_base.ipynb`: danh gia base RAG
+- `notebooks/rag_evaluate_qlora.ipynb`: danh gia RAG + QLoRA
+- `notebooks/qlora-law.ipynb`: huan luyen adapter
 
-- `RES.xlsx`
-- `data/datahuggingface/corpus_important_docs_chunks.jsonl`
-- `data/faiss/law_chunks_e5_base/`
-- `data/evaluate/evaluate.csv`
+### Chay script danh gia
 
-### 3. Run the QLoRA evaluation notebook
+```bash
+uv run python scripts/evaluate_rag_random_subset.py
+```
 
-Open:
+## Ghi chu
 
-- `notebooks/rag_evaluate_qlora.ipynb`
-
-Required assets:
-
-- the same retrieval assets as the base notebook
-- the published or local QLoRA adapter
-
-### 4. Retrain the QLoRA adapter
-
-Open:
-
-- `notebooks/qlora-law.ipynb`
-
-Required assets:
-
-- `data/training_lora/train_messages.jsonl`
-- `data/training_lora/val_messages.jsonl`
-
-## Colab / Kaggle Notes
-
-- The base and QLoRA evaluation notebooks are designed around a Google Drive project root such as:
-  - `/content/drive/MyDrive/LLM_RAG_PROJECT/`
-- `notebooks/kaggle_embed_jsonl_full.ipynb` is intended for Kaggle embedding runs
-- local experiments can use OpenSearch BM25, but the reported Colab evaluation runs use local BM25 + FAISS
-
-## Report
-
-The submission report is stored in:
-
-- `reports/RAG_Assignment_Report.tex`
-- `reports/RAG_Assignment_Report.md`
-
-Architecture figures used by the report are stored in:
-
-- `reports/assets/rag_system_architecture.png`
-- `reports/assets/rag_system_architecture_simple.png`
-
-## Notes
-
-- The original baseline result in the report is not a perfect same-split comparison because it was obtained on a different and smaller sample.
-- The improved base system and the QLoRA system are compared on the same fixed held-out split.
-- If you use recent `peft` versions in Colab and encounter adapter-loading issues, remove incompatible `torchao` builds from the runtime before loading the adapter.
+- README nay chi mo ta nhung file va thu muc dang co mat trong ban cap nhat tren GitHub.
+- Cac artifact lon hoac file tam phuc vu local run khong duoc liet ke o day neu khong nam trong repo hien tai.
